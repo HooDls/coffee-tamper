@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tamper — кофейня и обжарка в Казани</title>
+  <meta name="description" content="Кофейня Tamper в Казани. Соберите свой напиток: объём, молоко, сироп, лёд. Выберите время, и заказ будет готов к вашему приходу. Демо-сайт.">
+  <meta name="theme-color" content="#F5EEDF">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tamper — кофейня и обжарка в Казани">
+  <meta property="og:description" content="Соберите напиток и заберите без очереди.">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23173528'/%3E%3Cpath d='M8 11h16l-2 12a3 3 0 0 1-3 2h-6a3 3 0 0 1-3-2z' fill='%23F5EEDF'/%3E%3Cpath d='M12 6c0 2 2 2 2 4M17 6c0 2 2 2 2 4' stroke='%23D4552B' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/oswald-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/golos-text-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Tamper",
+    "description": "Кофейня и обжарка в Казани.",
+    "address": {"@type": "PostalAddress", "addressLocality": "Казань", "streetAddress": "ул. Примерная, 12", "addressCountry": "RU"},
+    "telephone": "+7 900 000-00-00",
+    "openingHours": "Mo-Su 08:00-21:00",
+    "servesCuisine": "Кофе, завтраки, выпечка",
+    "priceRange": "₽₽"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+
+  <header class="top" id="top">
+    <div class="top-in">
+      <a class="logo" href="#top" aria-label="Tamper, на главную">tamper<i aria-hidden="true"></i></a>
+      <nav class="nav" id="nav" aria-label="Разделы сайта">
+        <a href="#sobrat">Собрать кофе</a>
+        <a href="#menu">Меню</a>
+        <a href="#zerno">Зерно</a>
+        <a href="#about">О нас</a>
+        <a href="#kontakty">Контакты</a>
+      </nav>
+      <a class="nav-cart" href="#zakaz" id="nav-cart">Заказ<span class="count" id="nav-count" aria-hidden="true">0</span><span class="sr" id="nav-count-sr"></span></a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Первый экран ===== -->
+    <section class="hero" aria-labelledby="h-hero">
+      <div class="hero-in">
+        <div class="hero-copy">
+          <p class="open" id="open-badge"><span class="open-dot" aria-hidden="true"></span><span id="open-text">Кофейня в Казани</span></p>
+          <h1 id="h-hero">Кофе <em>по-вашему.</em> Заберёте без&nbsp;очереди.</h1>
+          <p class="lead">Соберите напиток из своих «хочу»: объём, молоко, сироп, лёд. Выберите время, и бариста приготовит к вашему приходу.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#sobrat">Собрать напиток</a>
+            <a class="btn btn-line" href="#menu">Смотреть меню</a>
+          </div>
+          <ul class="hero-facts">
+            <li><b>2 минуты</b> на заказ</li>
+            <li><b>Своя</b> обжарка зерна</li>
+            <li><b>Оплата</b> на кассе</li>
+          </ul>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-disc"></div>
+          <svg id="hero-cup" viewBox="0 0 400 460" focusable="false"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Конструктор напитка ===== -->
+    <section class="sec build" id="sobrat" aria-labelledby="h-build">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker">Конструктор</p>
+          <h2 id="h-build">Соберите свой напиток</h2>
+          <p class="sec-sub">Меняйте параметры, стакан слева меняется вместе с ними. Цена считается сразу.</p>
+          <noscript><p class="sec-sub">Конструктору нужен JavaScript. Без него напишите нам в Telegram или WhatsApp (контакты внизу страницы).</p></noscript>
+        </header>
+
+        <div class="build-grid">
+          <div class="stage">
+            <div class="stage-sticky">
+              <div class="stage-cup"><svg id="cup" viewBox="0 0 400 460" role="img" aria-label="Ваш напиток" focusable="false"></svg></div>
+              <div class="stage-info">
+                <h3 id="b-name">Латте</h3>
+                <p id="b-desc" class="stage-desc"></p>
+                <p id="b-spec" class="stage-spec"></p>
+              </div>
+              <div class="stage-buy">
+                <p class="b-price" id="b-price" aria-live="polite">280 ₽</p>
+                <button class="btn btn-primary" id="b-add" type="button">Добавить в заказ</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="opts">
+            <fieldset class="opt">
+              <legend>1. Напиток</legend>
+              <div class="drinks" id="opt-drink" role="radiogroup" aria-label="Напиток"></div>
+            </fieldset>
+            <fieldset class="opt">
+              <legend>2. Объём</legend>
+              <div class="pills" id="opt-size" role="radiogroup" aria-label="Объём"></div>
+            </fieldset>
+            <fieldset class="opt">
+              <legend>3. Подача</legend>
+              <div class="pills" id="opt-temp" role="radiogroup" aria-label="Подача"></div>
+              <p class="opt-note" id="n-temp" hidden></p>
+            </fieldset>
+            <fieldset class="opt">
+              <legend>4. Молоко</legend>
+              <div class="pills" id="opt-milk" role="radiogroup" aria-label="Молоко"></div>
+              <p class="opt-note" id="n-milk" hidden></p>
+            </fieldset>
+            <fieldset class="opt">
+              <legend>5. Сироп</legend>
+              <div class="pills" id="opt-syrup" role="radiogroup" aria-label="Сироп"></div>
+            </fieldset>
+            <fieldset class="opt">
+              <legend>6. Добавки</legend>
+              <div class="pills" id="opt-extra"></div>
+              <p class="opt-note" id="n-extra" hidden></p>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Меню ===== -->
+    <section class="sec menu" id="menu" aria-labelledby="h-menu">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker">Еда</p>
+          <h2 id="h-menu">К кофе</h2>
+          <p class="sec-sub">Готовим каждое утро. Нажмите «+», и позиция попадёт в заказ.</p>
+        </header>
+        <div class="menu-cols">
+          <div class="menu-col">
+            <h3>Завтраки</h3>
+            <ul class="mlist">
+              <li class="mi" data-name="Сырники с вареньем" data-price="290">
+                <div class="mi-main"><h4>Сырники с вареньем</h4><p>Творог, ягодное варенье, сметана</p></div>
+                <span class="mi-w">3 шт.</span><span class="mi-p">290 ₽</span>
+              </li>
+              <li class="mi" data-name="Овсяная каша" data-price="240">
+                <div class="mi-main"><h4>Овсяная каша</h4><p>На молоке, с бананом и мёдом</p></div>
+                <span class="mi-w">250 г</span><span class="mi-p">240 ₽</span>
+              </li>
+              <li class="mi" data-name="Сэндвич с индейкой" data-price="340">
+                <div class="mi-main"><h4>Сэндвич с индейкой</h4><p>Тёплый, с сыром и вялеными томатами</p></div>
+                <span class="mi-w">220 г</span><span class="mi-p">340 ₽</span>
+              </li>
+              <li class="mi" data-name="Круассан с авокадо и яйцом" data-price="360">
+                <div class="mi-main"><h4>Круассан с авокадо и яйцом</h4><p>Яйцо пашот, авокадо, микрозелень</p></div>
+                <span class="mi-w">200 г</span><span class="mi-p">360 ₽</span>
+              </li>
+              <li class="mi" data-name="Гранола с йогуртом" data-price="270">
+                <div class="mi-main"><h4>Гранола с йогуртом</h4><p>Домашняя гранола, греческий йогурт, ягоды</p></div>
+                <span class="mi-w">220 г</span><span class="mi-p">270 ₽</span>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-col">
+            <h3>Выпечка и десерты</h3>
+            <ul class="mlist">
+              <li class="mi" data-name="Круассан сливочный" data-price="160">
+                <div class="mi-main"><h4>Круассан сливочный</h4><p>Классический, на французском масле</p></div>
+                <span class="mi-w">90 г</span><span class="mi-p">160 ₽</span>
+              </li>
+              <li class="mi" data-name="Круассан миндальный" data-price="210">
+                <div class="mi-main"><h4>Круассан миндальный</h4><p>С миндальным кремом и лепестками</p></div>
+                <span class="mi-w">110 г</span><span class="mi-p">210 ₽</span>
+              </li>
+              <li class="mi" data-name="Чизкейк Нью-Йорк" data-price="290">
+                <div class="mi-main"><h4>Чизкейк Нью-Йорк</h4><p>Сливочный сыр, песочная основа</p></div>
+                <span class="mi-w">120 г</span><span class="mi-p">290 ₽</span>
+              </li>
+              <li class="mi" data-name="Банановый хлеб" data-price="170">
+                <div class="mi-main"><h4>Банановый хлеб</h4><p>С грецким орехом и корицей</p></div>
+                <span class="mi-w">100 г</span><span class="mi-p">170 ₽</span>
+              </li>
+              <li class="mi" data-name="Брауни" data-price="190">
+                <div class="mi-main"><h4>Брауни</h4><p>Тёмный шоколад, влажная серединка</p></div>
+                <span class="mi-w">90 г</span><span class="mi-p">190 ₽</span>
+              </li>
+              <li class="mi" data-name="Печенье с шоколадом" data-price="110">
+                <div class="mi-main"><h4>Печенье с шоколадом</h4><p>Хрустит по краям, мягкое внутри</p></div>
+                <span class="mi-w">60 г</span><span class="mi-p">110 ₽</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="allergy">Аллергены (глютен, молоко, орехи, яйцо) уточняйте у бариста до заказа.</p>
+      </div>
+    </section>
+
+    <!-- ===== Зерно ===== -->
+    <section class="sec beans" id="zerno" aria-labelledby="h-beans">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker">Своя обжарка</p>
+          <h2 id="h-beans">Зерно домой</h2>
+          <p class="sec-sub">Обжариваем небольшими партиями каждую неделю. Смелем под ваш способ заваривания.</p>
+        </header>
+        <ul class="bean-grid">
+          <li class="bean bean-a" data-name="Гуджи, Эфиопия" data-price="890">
+            <div class="bag"><span class="bag-top">Tamper</span><span class="bag-name">Гуджи</span><span class="bag-origin">Эфиопия · 250 г</span></div>
+            <div class="bean-body">
+              <h3>Гуджи, Эфиопия</h3>
+              <p class="roast" role="img" aria-label="Обжарка: светлая, 2 из 5"><span class="r on"></span><span class="r on"></span><span class="r"></span><span class="r"></span><span class="r"></span><em>светлая</em></p>
+              <ul class="notes"><li>жасмин</li><li>персик</li><li>чёрный чай</li></ul>
+              <label class="grind"><span>Помол</span>
+                <select class="grind-sel" aria-label="Помол для Гуджи, Эфиопия">
+                  <option>Зерном</option><option>Воронка (V60)</option><option>Френч-пресс</option><option>Турка</option><option>Кофемашина</option>
+                </select>
+              </label>
+              <div class="bean-buy"><span class="bean-price">890 ₽</span><button class="btn btn-dark add-bean" type="button">В заказ</button></div>
+            </div>
+          </li>
+          <li class="bean bean-b" data-name="Серрадо, Бразилия" data-price="690">
+            <div class="bag"><span class="bag-top">Tamper</span><span class="bag-name">Серрадо</span><span class="bag-origin">Бразилия · 250 г</span></div>
+            <div class="bean-body">
+              <h3>Серрадо, Бразилия</h3>
+              <p class="roast" role="img" aria-label="Обжарка: средняя, 3 из 5"><span class="r on"></span><span class="r on"></span><span class="r on"></span><span class="r"></span><span class="r"></span><em>средняя</em></p>
+              <ul class="notes"><li>шоколад</li><li>лесной орех</li><li>карамель</li></ul>
+              <label class="grind"><span>Помол</span>
+                <select class="grind-sel" aria-label="Помол для Серрадо, Бразилия">
+                  <option>Зерном</option><option>Воронка (V60)</option><option>Френч-пресс</option><option>Турка</option><option>Кофемашина</option>
+                </select>
+              </label>
+              <div class="bean-buy"><span class="bean-price">690 ₽</span><button class="btn btn-dark add-bean" type="button">В заказ</button></div>
+            </div>
+          </li>
+          <li class="bean bean-c" data-name="Уила, Колумбия" data-price="760">
+            <div class="bag"><span class="bag-top">Tamper</span><span class="bag-name">Уила</span><span class="bag-origin">Колумбия · 250 г</span></div>
+            <div class="bean-body">
+              <h3>Уила, Колумбия</h3>
+              <p class="roast" role="img" aria-label="Обжарка: средне-тёмная, 4 из 5"><span class="r on"></span><span class="r on"></span><span class="r on"></span><span class="r on"></span><span class="r"></span><em>средне-тёмная</em></p>
+              <ul class="notes"><li>какао</li><li>апельсин</li><li>кленовый сироп</li></ul>
+              <label class="grind"><span>Помол</span>
+                <select class="grind-sel" aria-label="Помол для Уила, Колумбия">
+                  <option>Зерном</option><option>Воронка (V60)</option><option>Френч-пресс</option><option>Турка</option><option>Кофемашина</option>
+                </select>
+              </label>
+              <div class="bean-buy"><span class="bean-price">760 ₽</span><button class="btn btn-dark add-bean" type="button">В заказ</button></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== О нас и карта лояльности ===== -->
+    <section class="sec about" id="about" aria-labelledby="h-about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="kicker">О нас</p>
+          <h2 id="h-about">Маленькая кофейня с большой кофемашиной</h2>
+          <p>Tamper начался с одной обжарочной машины и привычки не торопиться с зерном. Мы сами выбираем и обжариваем кофе, а бариста объясняют, чем один сорт отличается от другого, и не заставляют пить то, что вам не нравится.</p>
+          <p>Приходите посидеть с ноутбуком или заберите стакан с собой. У каждого окна есть розетки, а вода для гостей бесплатная.</p>
+        </div>
+        <aside class="loyal" aria-labelledby="h-loyal">
+          <h3 id="h-loyal">Каждый десятый кофе — в подарок</h3>
+          <p>Назовите свой номер телефона на кассе, и мы отметим напиток. Бумажные карточки не нужны.</p>
+          <ol class="stamps" aria-label="Девять отметок и подарочный десятый кофе">
+            <li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li>
+            <li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="gift">10</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Заказ ===== -->
+    <section class="sec order" id="zakaz" aria-labelledby="h-order">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker">Заказ к определённому времени</p>
+          <h2 id="h-order">Ваш заказ</h2>
+          <p class="sec-sub">Выберите время, и мы подготовим сообщение для Telegram или WhatsApp. Оплата на кассе.</p>
+        </header>
+        <div class="order-grid">
+          <div class="cart">
+            <p id="cart-empty" class="cart-empty">Пока пусто. <a href="#sobrat">Соберите напиток</a> или выберите что-нибудь <a href="#menu">из меню</a>.</p>
+            <ul id="cart-list" class="cart-list" aria-label="Позиции заказа"></ul>
+            <div class="cart-total" id="cart-total-row" hidden><span>Итого</span><strong id="cart-total">0 ₽</strong></div>
+            <p class="e-cart" id="e-cart" role="alert"></p>
+          </div>
+
+          <div class="order-side">
+            <form class="oform" id="order-form" novalidate>
+              <div class="field">
+                <label for="f-name">Ваше имя</label>
+                <input id="f-name" name="name" type="text" autocomplete="given-name" maxlength="40" placeholder="Как к вам обращаться">
+                <p class="err" id="e-name"></p>
+              </div>
+              <div class="field">
+                <label for="f-phone">Телефон</label>
+                <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (9__) ___-__-__" maxlength="18">
+                <p class="err" id="e-phone"></p>
+              </div>
+              <fieldset class="field seg-field">
+                <legend>Когда заберёте</legend>
+                <div class="seg">
+                  <label><input type="radio" name="day" value="today" checked><span>Сегодня</span></label>
+                  <label><input type="radio" name="day" value="tomorrow"><span>Завтра</span></label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="f-time">Время</label>
+                <select id="f-time" name="time"></select>
+                <p class="hint" id="h-time"></p>
+                <p class="err" id="e-time"></p>
+              </div>
+              <div class="field">
+                <label for="f-comment">Комментарий <span class="opt-label">необязательно</span></label>
+                <textarea id="f-comment" name="comment" rows="2" maxlength="240" placeholder="Например: разогрейте сэндвич"></textarea>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">Подготовить сообщение</button>
+            </form>
+
+            <div class="done" id="done" hidden>
+              <h3>Сообщение готово</h3>
+              <p>Отправьте его нам, и мы подтвердим заказ. Оплата на кассе.</p>
+              <pre class="done-text" id="done-text" tabindex="0" aria-label="Текст сообщения"></pre>
+              <div class="done-actions">
+                <a class="btn btn-primary" id="tg-link" href="#" target="_blank" rel="noopener">Открыть Telegram</a>
+                <a class="btn btn-line-dark" id="wa-link" href="#" target="_blank" rel="noopener">Открыть WhatsApp</a>
+                <button class="btn btn-line-dark" id="copy-btn" type="button">Скопировать текст</button>
+              </div>
+              <p class="copy-state" id="copy-state" role="status"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Вопросы ===== -->
+    <section class="sec faq" id="voprosy" aria-labelledby="h-faq">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker">Вопросы</p>
+          <h2 id="h-faq">Коротко о главном</h2>
+        </header>
+        <div class="faq-list">
+          <details><summary>Как забрать заказ?</summary><p>Подойдите к стойке в выбранное время и назовите имя. Заказ будет стоять готовым. Если опаздываете, напишите нам, подержим тёплым до 15 минут.</p></details>
+          <details><summary>Как оплатить?</summary><p>На кассе при получении: картой или наличными. Онлайн-оплаты на сайте нет, чтобы вы не вводили данные карты.</p></details>
+          <details><summary>За сколько можно заказать?</summary><p>Минимум за 15 минут до выбранного времени. Заказать можно на сегодня и на завтра.</p></details>
+          <details><summary>Какое молоко есть?</summary><p>Коровье, безлактозное, овсяное, миндальное и кокосовое. За коровье доплаты нет, за остальные виды небольшая надбавка, она сразу видна в цене.</p></details>
+          <details><summary>Можно ли изменить заказ?</summary><p>Напишите нам в тот же чат, пока бариста не начал готовить. Обычно это за 5 минут до вашего времени.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Контакты ===== -->
+    <section class="sec contacts" id="kontakty" aria-labelledby="h-contacts">
+      <div class="wrap contacts-grid">
+        <div class="c-card">
+          <p class="kicker">Контакты</p>
+          <h2 id="h-contacts">Как нас найти</h2>
+          <dl class="c-list">
+            <div><dt>Адрес</dt><dd>Казань, ул. Примерная, 12</dd></div>
+            <div><dt>Часы работы</dt><dd>Ежедневно, 8:00–21:00</dd></div>
+            <div><dt>Телефон</dt><dd><a href="tel:+79000000000">+7 900 000-00-00</a></dd></div>
+            <div><dt>Написать</dt><dd><a id="c-tg" href="#" target="_blank" rel="noopener">Telegram</a> · <a id="c-wa" href="#" target="_blank" rel="noopener">WhatsApp</a></dd></div>
+          </dl>
+        </div>
+        <div class="map" role="img" aria-label="Схема: кофейня на углу улицы Примерной, рядом сквер и река">
+          <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
+            <rect width="600" height="420" fill="#214735"/>
+            <path d="M-20 330 C 140 290, 260 380, 420 330 S 600 300, 640 320 L 640 440 L -20 440Z" fill="#2c5a7a" opacity=".85"/>
+            <rect x="60" y="40" width="150" height="110" rx="14" fill="#2f6a47"/>
+            <circle cx="105" cy="85" r="14" fill="#3b7d55"/><circle cx="150" cy="105" r="18" fill="#3b7d55"/><circle cx="180" cy="70" r="11" fill="#3b7d55"/>
+            <g stroke="#F5EEDF" stroke-linecap="round" fill="none" opacity=".92">
+              <path d="M0 200 H600" stroke-width="22"/>
+              <path d="M300 0 V300" stroke-width="22"/>
+              <path d="M0 120 H300" stroke-width="10" opacity=".6"/>
+              <path d="M440 0 V250" stroke-width="10" opacity=".6"/>
+              <path d="M300 260 H600" stroke-width="10" opacity=".6"/>
+            </g>
+            <g fill="#173528" opacity=".55">
+              <rect x="330" y="30" width="90" height="60" rx="6"/><rect x="330" y="105" width="90" height="70" rx="6"/>
+              <rect x="470" y="30" width="100" height="70" rx="6"/><rect x="470" y="120" width="100" height="60" rx="6"/>
+              <rect x="30" y="225" width="110" height="45" rx="6"/><rect x="160" y="225" width="110" height="45" rx="6"/>
+            </g>
+            <g transform="translate(300 200)">
+              <circle r="30" fill="#D4552B" opacity=".25"/>
+              <path d="M0 -34 C 14 -34 22 -24 22 -13 C 22 3 0 22 0 22 C 0 22 -22 3 -22 -13 C -22 -24 -14 -34 0 -34Z" fill="#D4552B" stroke="#F5EEDF" stroke-width="3"/>
+              <circle cy="-14" r="7" fill="#F5EEDF"/>
+            </g>
+            <text x="318" y="246" fill="#F5EEDF" font-family="Oswald, sans-serif" font-size="22" font-weight="600" letter-spacing="1">TAMPER</text>
+            <text x="26" y="205" fill="#173528" font-family="Golos Text, sans-serif" font-size="13" font-weight="600">ул. Примерная</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="cartbar" id="cartbar">
+      <p class="cartbar-text"><span id="cb-count">0 позиций</span><strong id="cb-total">0 ₽</strong></p>
+      <a class="btn btn-primary" href="#zakaz" id="cb-go">Оформить</a>
+    </div>
+  </main>
+
+  <p class="sr" id="live" role="status" aria-live="polite"></p>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <p class="foot-logo">tamper</p>
+      <p class="foot-note">Демонстрационный сайт: кофейня, адрес и телефон вымышлены. Сайт сделан как пример работы.</p>
+      <p class="foot-copy">© <span id="year">2026</span> Tamper</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
